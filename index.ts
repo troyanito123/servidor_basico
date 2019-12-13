@@ -5,7 +5,6 @@ import cors from 'cors'
 import { Server } from './classes/server';
 import fileUpload = require('express-fileupload');
 import routes from './routes';
-import mongoose from 'mongoose';
 
 
 // const server = Server.init( Number(process.env.PORT) ); 
@@ -25,11 +24,7 @@ server.app.use(cors({origin: true, credentials: true}));
 server.app.use( routes );
 
 //conectar DB
-mongoose.connect(String(process.env.URLDB),
-                {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true}, (err)=>{
-                    if (err) throw err; 
-                    console.log('Base de datos ONLINE');
-                });
+
 
 
 //levantar expres
